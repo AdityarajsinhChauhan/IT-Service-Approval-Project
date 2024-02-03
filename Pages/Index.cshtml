@@ -4,7 +4,86 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="userContainer">
+    <div class="title">USB access request</div>
+    <form method="post">
+        <div class="userDetails">
+            <div class="inputBox">
+                <label for="uName">Name</label>
+                <input type="text" name="Name" id="uName" required>
+            </div>
+            <div class="inputBox">
+                <label for="uId">Employee Id</label>
+                <input type="text" id="uId" required>
+            </div>
+            <div class="inputBox">
+                <label for="uDepartment">Department</label>
+                <input type="text" name="Department" id="uDepartment" required>
+            </div>
+            <div class="inputBox">
+                <label for="uEmail">Email</label>
+                <input type="text" name="Email" id="uEmail" required>
+            </div>
+
+            <div class="optionBox">
+                <label for="accessType">Access Type</label>
+                <select name="AccessType" id="accessType" required>
+                    <option value="">---select---</option>
+                    <option value="permanent">permanent</option>
+                    <option value="temporary">temporary</option>
+                </select>
+            </div>
+            <div class="optionBox nonelabel">
+                <label for="accessDuration">Access Duration</label>
+                <select name="AccessDuration" id="accessDuration">
+                    <option value="">---select---</option>
+                    <option value="1hr">1 hour</option>
+                    <option value="1day">1 day</option>
+                    <option value="2days">2 days</option>
+                    <option value="3days">3 days</option>
+                </select>
+            </div>
+            <div class="remarksBox">
+                <label for="remarks">Remarks</label>
+                <textarea name="Remarks" id="remarks" cols="30" rows="3"></textarea>
+            </div>
+            <div class="button">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+
+    </form>
 </div>
+
+<div class="tableBox">
+    <div class="title">User Details</div>
+    <table>
+        <thead>
+            <tr>
+                <th>EmployeeId</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Email</th>
+                <th>AccessType</th>
+                <th>AccessDuration</th>
+                <th>Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.list)
+            {
+                <tr>
+                    <td>@item.employeeId</td>
+                    <td>@item.name</td>
+                    <td>@item.department</td>
+                    <td>@item.email</td>
+                    <td>@item.accessType</td>
+                    <td>@item.accessDuration</td>
+                    <td>@item.remarks</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="/js/script.js"></script>

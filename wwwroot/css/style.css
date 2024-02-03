@@ -1,0 +1,223 @@
+﻿
+/* background: linear-gradient(135deg, #71b7e6,#3a6073); */
+/* background: linear-gradient(to right, #5f2c82, #49a09d); */
+/*  yes background: linear-gradient(to right, #5f2c82, #49a09d); */
+/* background: linear-gradient(to right, #7474bf, #348ac7); */
+/*  yes background: linear-gradient(to right, #24c6dc, #514a9d); */
+/* background: linear-gradient(to left, #283048, #859398); */
+/* background: linear-gradient(to left, #16222a, #3a6073); mirage */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nonelabel {
+    visibility: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #24c6dc, #514a9d);
+}
+
+header {
+    width: 100vw;
+    background: linear-gradient(to right, #24c6dc, #514a9d);
+    border-bottom: 1px solid white;
+}
+
+    header h2 {
+        margin: 2vh 0 5vh 5vh;
+        color: #fff;
+    }
+
+.userContainer {
+    margin-top: 5vh;
+    max-width: 90vw;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+
+    .userContainer .title,
+    .tableBox .title {
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 2vh;
+        color: #1b1936;
+    }
+
+        .userContainer .title::before,
+        .tableBox .title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, #24c6dc, #514a9d);
+        }
+
+    .userContainer form .userDetails {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0 12px 0;
+    }
+
+    .userContainer form .inputBox {
+        margin-bottom: 15px;
+        width: calc(100% / 3 - 20px);
+    }
+
+        .userContainer form .inputBox input:hover {
+            border-color: #a6a6a6;
+        }
+
+.userDetails .inputBox label,
+.userDetails .optionBox label,
+.userDetails .remarksBox label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+    color: #1b1936;
+}
+
+.userDetails .inputBox input {
+    height: 2em;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 0.5vw;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+    .userDetails .inputBox input:focus,
+    .userDetails .inputBox input:valid {
+        border-color: #727272;
+        color: #727272;
+    }
+
+.userDetails .optionBox {
+    margin-bottom: 15px;
+    width: calc(100% / 3 - 20px);
+    transition: all 0.3s ease;
+}
+
+.userDetails select {
+    height: 2em;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+}
+
+
+
+.userDetails .optionBox select:hover {
+    border-color: #3a6073;
+}
+
+.userDetails .remarksBox {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.userDetails textarea {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    padding-top: 10px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    resize: none;
+}
+
+    .userDetails textarea:hover {
+        border-color: #3a6073;
+    }
+
+
+form .button {
+    height: 2em;
+    width: calc(100% / 3 - 20px);
+    margin: 5vh 0;
+}
+
+    form .button button {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        font-weight: 100;
+        color: #fff;
+        font-size: large;
+        letter-spacing: 1px;
+        background: linear-gradient(to right, #24c6dc, #514a9d);
+    }
+
+        form .button button:hover {
+            background: linear-gradient(to right, #1caabc, #453f86);
+            cursor: pointer;
+        }
+
+.tableBox {
+    margin-top: 10vh;
+    max-width: 90vw;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+
+    .tableBox table {
+        overflow-y: scroll;
+        overflow-x: scroll;
+        margin-top: 5vh;
+        width: 100%;
+    }
+
+        .tableBox table th {
+            border-bottom: 1px solid black;
+            text-align: end;
+            padding-bottom: 1vh;
+        }
+
+        .tableBox table td {
+            text-align: end;
+            padding-top: 1vh;
+            padding-bottom: 1vh;
+        }
+
+@media (max-width:584px) {
+    .userContainer {
+        max-width: 100%;
+    }
+
+    form .userDetails .inputBox {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    form .AccessDetails {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+}
