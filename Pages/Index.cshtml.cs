@@ -32,7 +32,7 @@ namespace ITServiceApprovalProject.Pages
                     {
                         dataModel model = new dataModel();
 
-                        model.employeeId = reader.GetInt32("employeeId");
+                        model.employeeId = reader.GetInt64("employeeId");
                         model.name = reader.GetString("name");
                         model.department = reader.GetString("department");
                         model.email = reader.GetString("email");
@@ -51,6 +51,16 @@ namespace ITServiceApprovalProject.Pages
 
         public void OnPost()
         {
+            if (long.TryParse(Request.Form["EmployeeId"], out long enteredEmployeeId))
+            {
+                mo.employeeId = enteredEmployeeId;
+            }
+            else
+            {
+                // Handle the case where the entered employeeId is not a valid integer.
+                // You may choose to display an error message or take appropriate action.
+                return;
+            }
             mo.name = Request.Form["Name"];
             mo.department = Request.Form["Department"];
             mo.email = Request.Form["Email"];
@@ -65,12 +75,13 @@ namespace ITServiceApprovalProject.Pages
                 {
                     connection.Open();
                     string sql = "INSERT INTO employee" +
-                        "(name, department, email, accessType, accessDuration, remarks)" +
+                        "(employeeId, name, department, email, accessType, accessDuration, remarks)" +
                         "VALUES" +
-                        "(@Name, @Department, @Email, @AccessType, @AccessDuration, @Remarks);";
+                        "(@EmployeeId, @Name, @Department, @Email, @AccessType, @AccessDuration, @Remarks);";
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
+                        command.Parameters.AddWithValue("@EmployeeId", mo.employeeId);
                         command.Parameters.AddWithValue("@Name", mo.name);
                         command.Parameters.AddWithValue("@Department", mo.department);
                         command.Parameters.AddWithValue("@Email", mo.email);
@@ -84,19 +95,7 @@ namespace ITServiceApprovalProject.Pages
 
                         command.ExecuteNonQuery();
                     }
-                    string requestSql = "INSERT INTO ServicePermissionRequest (employeeId, AccessType, AccessDuration)" +
-                    "VALUES (@EmployeeId, @AccessType, @AccessDuration);";
-
-                    using (SqlCommand requestCommand = new SqlCommand(requestSql, connection))
-                    {
-                        requestCommand.Parameters.AddWithValue("@EmployeeId", mo.employeeId);
-                        requestCommand.Parameters.AddWithValue("@AccessType", mo.accessType);
-                        requestCommand.Parameters.AddWithValue("@AccessDuration", mo.accessDuration);
-
-
-
-                        requestCommand.ExecuteNonQuery();
-                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -119,7 +118,7 @@ namespace ITServiceApprovalProject.Pages
     }
     public class dataModel
     {
-        public int employeeId { get; set; }
+        public long employeeId { get; set; }
         public string name { get; set; }
         public string department { get; set; }
         public string email { get; set; }
