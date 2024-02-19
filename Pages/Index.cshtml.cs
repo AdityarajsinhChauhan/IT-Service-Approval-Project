@@ -18,32 +18,7 @@ namespace ITServiceApprovalProject.Pages
 
         public void OnGet()
         {
-            Console.WriteLine("Onget");
-            string connectionString = "Data Source=localhost;Initial Catalog=ITServiceDB;Integrated Security=True";
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                string query = "SELECT * FROM employee";
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        dataModel model = new dataModel();
-
-                        model.employeeId = reader.GetInt64("employeeId");
-                        model.name = reader.GetString("name");
-                        model.department = reader.GetString("department");
-                        model.email = reader.GetString("email");
-                        model.accessType = reader.GetString("accessType");
-                        model.accessDuration = reader.GetString("accessDuration");
-                        model.remarks = reader.GetString("remarks");
-
-                        list.Add(model);
-                    }
-                }
-            }
+            
 
 
         }

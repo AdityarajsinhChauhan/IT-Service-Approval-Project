@@ -1,0 +1,55 @@
+﻿@page
+@model ITServiceApprovalProject.Pages.RegisterModel
+@{
+    Layout = "Shared/_loginLayout.cshtml";
+}
+<div class="background">
+    <div class="bg">
+        <div class="register-container">
+            <div class="title">
+                <h2>Register</h2>
+            </div>
+
+            <form method="post" class="content" onsubmit="return validateForm();">
+
+                <div class="input-box">
+                    <label asp-for="employee.name">Name</label>
+                    <input asp-for="employee.name" class="form-control" required>
+                    <span asp-validation-for="employee.name" class=""></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="employee.department">Department</label>
+                    <input asp-for="employee.department" class="form-control" required>
+                    <span asp-validation-for="employee.department" class=""></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="employee.employeeId">Employee ID</label>
+                    <input asp-for="employee.employeeId" id="employeeId" class="form-control" required>
+                    <span asp-validation-for="employee.employeeId" class=""></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="employee.email">Email</label>
+                    <input type="email" asp-for="employee.email" class="form-control" required>
+                    <span asp-validation-for="employee.email" class=""></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="password">Password</label>
+                    <input type="password" asp-for="password" class="form-control" id="password" required>
+
+                </div>
+                <div class="input-box">
+                    <label for="re-pwd">Re-Type Password</label>
+                    <input type="password" id="re-pwd" class="form-control" required>
+                    <span class="text-danger" id="password-error" style="visibility: hidden;">password do not match</span>
+                </div>
+
+                <div class="button">
+                    <button type="submit" class="login-button">Submit</button>
+                </div>
+            </form>
+            <a href="login">back to login</a>
+
+
+        </div>
+    </div>
+</div>

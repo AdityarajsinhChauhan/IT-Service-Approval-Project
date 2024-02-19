@@ -1,0 +1,36 @@
+﻿@page
+@{
+    Layout = "Shared/_loginLayout.cshtml";
+}
+@model ITServiceApprovalProject.Pages.loginModel
+@{
+}
+<div class="background">
+    <div class="bg">
+        <div class="login-container">
+            <form method="post">
+                <div class="title">
+                    <h2>Log In</h2>
+                </div>
+                <div class="conten">
+                    <div class="input-box">
+                        <label for="eid">Employee ID</label>
+                        <input type="text" name="employeeId" id="eid">
+                    </div>
+                    <div class="input-box">
+                        <label for="pwd">Password</label>
+                        <input type="password" name="password" id="pwd">
+                    </div>
+                    <span class="login-error" id="loginErrorMessage" style="@((Model.IsInvalidCredentials) ? "visibility: visible;" : "visibility: hidden;")">Employee ID or Password is incorrect</span>
+
+                    <div class="button">
+                        <button type="submit" class="login-button">login</button>
+                        
+                    </div>
+                </div>
+            </form>
+            <a href="Register">don't have account create here</a>
+        </div>
+    </div>
+</div>
+

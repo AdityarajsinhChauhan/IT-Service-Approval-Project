@@ -29,24 +29,42 @@ header {
     width: 100vw;
     background: linear-gradient(to right, #24c6dc, #514a9d);
     border-bottom: 1px solid white;
+    height: 17vh;
 }
 
     header h2 {
-        margin: 2vh 0 5vh 5vh;
+        margin: 2vh 0 3vh 5vh;
         color: #fff;
     }
+    header nav {
+        margin-left: 5vh;
+        display: flex;
+        margin-bottom: 1vh;
+    }
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            margin-right: 3vh;
+            font-weight: bold;
+            padding: 1vh;
+            border: 1px solid transparent;
+        }
+
+            header nav a:hover {
+                border: 1px solid white;
+            }
 
 .userContainer {
     margin-top: 5vh;
-    max-width: 90vw;
-    width: 100%;
+    width: 90vw;
     background: #fff;
     padding: 25px 30px;
     border-radius: 5px;
 }
 
     .userContainer .title,
-    .tableBox .title {
+    .table-container .title {
         font-weight: 500;
         position: relative;
         padding-bottom: 2vh;
@@ -54,7 +72,7 @@ header {
     }
 
         .userContainer .title::before,
-        .tableBox .title::before {
+        .table-container .title::before {
             content: '';
             position: absolute;
             left: 0;
@@ -178,32 +196,105 @@ form .button {
             cursor: pointer;
         }
 
-.tableBox {
+.table-container {
     margin-top: 10vh;
-    max-width: 90vw;
-    width: 100%;
+    width: 90vw;
     background: #fff;
     padding: 25px 30px;
     border-radius: 5px;
 }
 
-    .tableBox table {
-        overflow-y: scroll;
-        overflow-x: scroll;
-        margin-top: 5vh;
-        width: 100%;
+.tableHeader {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #fff; /* Optional: Background color for header */
+}
+
+.tableBody {
+    height: 300px;
+    overflow-y: auto;
+    position: relative;
+    overflow-y: auto;
+    height: calc(100% - 30px); /* Adjust the height to accommodate header height */
+}
+
+.table-container table {
+    margin-top: 5vh;
+    width: 100%;
+}
+
+.table-container {
+    
+    height: 300px; /* Adjust the height as needed */
+    position: relative;
+}
+
+.table-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white; /* Optional: Background color for header */
+}
+
+    .table-header thead tr th {
+        background-color: white;
+        width: calc(100%/4);
+    }
+    .table-body tbody tr td{
+        width: calc(100%/4);
     }
 
-        .tableBox table th {
-            border-bottom: 1px solid black;
-            text-align: end;
-            padding-bottom: 1vh;
-        }
+.table-body {
+    overflow-y: auto;
+    height: calc(70% - 30px); /* Adjust the height to accommodate header height */
+}
 
-        .tableBox table td {
-            text-align: end;
-            padding-top: 1vh;
-            padding-bottom: 1vh;
+/* Optional: Style for table headers */
+.table-header th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Optional: Style for alternating row colors */
+.table-body tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-container table th {
+    border-bottom: 1px solid black;
+    text-align: end;
+    padding-bottom: 1vh;
+}
+
+.table-container table td {
+    text-align: end;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.table-container .button {
+    height: 2em;
+    width: calc(100% / 3 - 20px);
+    margin: 5vh 0;
+}
+
+    .table-container .button button {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        font-weight: 100;
+        color: #fff;
+        font-size: large;
+        letter-spacing: 1px;
+        background: linear-gradient(to right, #24c6dc, #514a9d);
+    }
+
+        .table-container .button button:hover {
+            background: linear-gradient(to right, #1caabc, #453f86);
+            cursor: pointer;
         }
 
 @media (max-width:584px) {
@@ -213,7 +304,7 @@ form .button {
 
     form .userDetails .inputBox {
         margin-bottom: 15px;
-        width: 100%;
+        width: 100z
     }
 
     form .AccessDetails {

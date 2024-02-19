@@ -55,35 +55,6 @@
     </form>
 </div>
 
-<div class="tableBox">
-    <div class="title">User Details</div>
-    <table>
-        <thead>
-            <tr>
-                <th>EmployeeId</th>
-                <th>Name</th>
-                <th>Department</th>
-                <th>Email</th>
-                <th>AccessType</th>
-                <th>AccessDuration</th>
-                <th>Remarks</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.list)
-            {
-                <tr>
-                    <td>@item.employeeId</td>
-                    <td>@item.name</td>
-                    <td>@item.department</td>
-                    <td>@item.email</td>
-                    <td>@item.accessType</td>
-                    <td>@item.accessDuration</td>
-                    <td>@item.remarks</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+
 
 <script src="/js/script.js"></script>
