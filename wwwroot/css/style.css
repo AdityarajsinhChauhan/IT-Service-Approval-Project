@@ -36,6 +36,7 @@ header {
         margin: 2vh 0 3vh 5vh;
         color: #fff;
     }
+
     header nav {
         margin-left: 5vh;
         display: flex;
@@ -172,13 +173,13 @@ header {
     }
 
 
-form .button {
+.button {
     height: 2em;
     width: calc(100% / 3 - 20px);
     margin: 5vh 0;
 }
 
-    form .button button {
+    .button button {
         height: 100%;
         width: 100%;
         outline: none;
@@ -191,7 +192,7 @@ form .button {
         background: linear-gradient(to right, #24c6dc, #514a9d);
     }
 
-        form .button button:hover {
+        .button button:hover {
             background: linear-gradient(to right, #1caabc, #453f86);
             cursor: pointer;
         }
@@ -225,7 +226,6 @@ form .button {
 }
 
 .table-container {
-    
     height: 300px; /* Adjust the height as needed */
     position: relative;
 }
@@ -241,9 +241,10 @@ form .button {
         background-color: white;
         width: calc(100%/4);
     }
-    .table-body tbody tr td{
-        width: calc(100%/4);
-    }
+
+.table-body tbody tr td {
+    width: calc(100%/4);
+}
 
 .table-body {
     overflow-y: auto;

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Threading.Tasks; // Add this namespace
+using System.Threading.Tasks;
 
 namespace ITServiceApprovalProject.Pages
 {
@@ -27,19 +27,23 @@ namespace ITServiceApprovalProject.Pages
         {
         }
 
-        public async Task<IActionResult> OnPost() // Change the return type to Task<IActionResult>
+        public async Task<IActionResult> OnPost()
         {
+            
             var user = await _context.credentials.FirstOrDefaultAsync(u => u.employeeId == employeeId && u.password == password);
 
             if (user != null)
             {
+                TempData["EmployeeId"] = employeeId.ToString();
+
                 return Redirect("Index");
             }
             else
             {
-                IsInvalidCredentials = true; // Set the flag to true if credentials are invalid
+                IsInvalidCredentials = true; 
                 return Page();
             }
         }
     }
 }
+
